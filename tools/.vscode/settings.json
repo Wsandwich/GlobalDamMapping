@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "E:/wyj/project/dam/detection/mmrotate-main",
+        "./libs"
+    ]
+}
