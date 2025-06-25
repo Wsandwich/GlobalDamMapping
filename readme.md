@@ -1,9 +1,7 @@
 # **A Significant but Uneven Increase in Global Dams over the Recent Decade**
 
 This repository contains the code implementation for our research on global dam distribution and dynamics mapping using deep learning and satellite imagery analysis.
-
-![dam mapping](GlobalDamMapping/doc/dam mapping.png)
-
+![dam mapping](https://github.com/user-attachments/assets/aff34b6b-d1e6-4098-9c51-fa5973992cc2)
 ## Overview
 
 We present a comprehensive analysis of global dam proliferation from 2010 to 2020, revealing a 39.2% increase in dam numbers worldwide. Our study leverages deep learning to interpret high-resolution satellite imagery, providing unprecedented insights into dam distribution patterns and their ecological impacts.
