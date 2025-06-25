@@ -6,8 +6,8 @@ This repository contains the code implementation for our research on global dam 
 
 We present a comprehensive analysis of global dam proliferation from 2010 to 2020, revealing a 39.2% increase in dam numbers worldwide. Our study leverages deep learning to interpret high-resolution satellite imagery, providing unprecedented insights into dam distribution patterns and their ecological impacts.
 
-![Uploading Overview figure.png…]()
 
+![overview](doc/Overview figure.png)
 
 ## Repository Structure
 
