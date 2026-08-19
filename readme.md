@@ -1,78 +1,94 @@
-# **A Significant but Uneven Increase in Global Dams over the Recent Decade**
+# Uneven global dam change shapes divergent progress of free-flowing rivers
 
-This repository contains the code implementation for our research on global dam distribution and dynamics mapping using deep learning and satellite imagery analysis.
+This repository contains analysis and visualization code supporting the manuscript **“Uneven global dam change shapes divergent progress of free-flowing rivers.”** The study maps global dams in 2010, 2015, and 2020 and reports a 27.0% increase in global dam numbers over the decade, together with geographically divergent changes in river fragmentation and free-flowing rivers.
+
 ![dam mapping](https://github.com/user-attachments/assets/aff34b6b-d1e6-4098-9c51-fa5973992cc2)
-## Overview
 
-We present a comprehensive analysis of global dam proliferation from 2010 to 2020, revealing a 39.2% increase in dam numbers worldwide. Our study leverages deep learning to interpret high-resolution satellite imagery, providing unprecedented insights into dam distribution patterns and their ecological impacts.
+## Repository structure
 
-
-![overview](https://github.com/Wsandwich/GlobalDamMapping/blob/fdca321c9e1af432d28d7a2f548bafdf8c0172e3/doc/Overview%20figure.png)
-
-## Repository Structure
-
-```
-├── result1/          # Multi-Temporal Multi-Class Mapping of Global Dams
-├── result2/          # Policy and Socio-Economic Impacts on Global Dam Change
-├── result3/          # Global Dam Change's Riverine Ecological Consequences
-├── tools/            # Multi-temporal annotation tools
-└── doc/             # Documentation and figures
+```text
+├── result1/    # Dam-count aggregation, spatial summaries, and figure/table generation
+├── result2/    # Policy and socio-environmental analyses, Monte Carlo propagation, and spatial regression
+├── result3/    # River-fragmentation and free-flowing-river analyses
+├── tools/      # Multi-temporal dam-annotation tools
+└── doc/        # Overview figures and supporting documentation
 ```
 
-## Code Organization
+## Code-to-analysis mapping
 
-### Result 1: Multi-Temporal Multi-Class Mapping of Global Dams(coming soon)
+| Manuscript analysis | Representative code |
+| --- | --- |
+| Global dam counts, dam types, continental and latitudinal summaries | `result1/count_*.py`, `result1/compare_*.py`, and `result1/draw_*.py` |
+| Monte Carlo uncertainty propagation and spatial-lag regression | `result2/common_mc.py` and `result2/exp8_spatial_mc_fast_nogdpc_repl2010.py` |
+| Dam-to-river assignment and degree-of-fragmentation calculations | `result3/dam_river_proximity_*.py` and `result3/dof_v3.py` |
+| Monte Carlo propagation for river-fragmentation metrics | `result3/mc_dof/02_mc_dof_simulation_v4.py` |
+| Monte Carlo convergence diagnostics | `result3/mc_dof/04_mc_convergence_v2.py` |
+| Figure and table generation | plotting and export scripts under `result1/`, `result2/`, and `result3/` |
+| Multi-temporal annotation and quality control | `tools/roLabelImg4.py` and associated utilities |
 
-Contains code for:
+## Environment and configuration
 
-- HDD-Net deep learning model implementation
-- Global dam detection and classification
-- Multi-temporal change analysis (2010, 2015, 2020)
+The analysis scripts use Python 3.8 or later. Principal dependencies include:
 
-### Result 2: Policy and Socio-Economic Impacts on Global Dam Change(coming soon)
-
-Contains code for:
-
-- Regional dam growth analysis
-- Policy impact assessment
-- Socio-economic  impact analysis
-
-### Result 3: Global Dam Change's Riverine Ecological Consequences
-
-Contains code for:
-
-- River fragmentation index calculation
-- Hydrological connectivity analysis
-
-### Tools: Multi-temporal Annotation Tools
-
-Contains:
-
-- Custom annotation interface for dam labeling
-- Quality control and verification tools
-- Multi-temporal consistency validation utilities
-
-## Requirements
-
-```
-Python 3.8+
-PyTorch 1.x
-GDAL
-Rasterio
-GeoPandas
+```text
 NumPy
 Pandas
-Scikit-learn
+GeoPandas
+GDAL
+Rasterio
+Matplotlib
+SciPy
+statsmodels
+libpysal
+esda
+spreg
+joblib
+scikit-learn
+numba
 ```
 
-## Data Availability
+The spatial-regression workflow accepts environment-specific input, output, and run settings through variables including:
 
-The global dam inventory datasets for 2010, 2015, and 2020 are available upon request. Please contact the corresponding author for data access.
+```text
+RESULT1_OUTPUT_ROOT
+RESULT2_OUTPUT_ROOT
+RESULT1_RUN_TAG
+RESULT2_RUN_TAG
+HLZ_DATA_DIR
+HLZ_SHP_TEMPLATE
+MC_CACHE_DIR
+MC_CACHE_TEMPLATE
+ATTR_EXP
+ATTR_LEV
+N_SIM
+N_JOBS
+OUTPUT_BASE_DIR
+OUTPUT_DIR
+```
 
-## License
+For example, after setting the required paths, run the spatial-regression and Monte Carlo workflow from the repository root:
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+```text
+python result2/exp8_spatial_mc_fast_nogdpc_repl2010.py
+```
 
-## Acknowledgments
+The river-fragmentation Monte Carlo scripts expose command-line arguments so that local paths do not need to match the default computing environment:
 
-We thank the expert annotation team and all contributors who made this global-scale analysis possible.
+```text
+python result3/mc_dof/02_mc_dof_simulation_v4.py --cache-path PATH/TO/basin_cache.pkl --results-path PATH/TO/mc_results_v4.pkl --n-sim 1000 --seed 42
+python result3/mc_dof/04_mc_convergence_v2.py --cache-path PATH/TO/basin_cache.pkl --out-path PATH/TO/mc_dof_convergence.png --seed 42
+```
+
+Large input datasets and intermediate caches are not included in this repository. Input sources and processing definitions are documented in the manuscript and its Supplementary Information.
+
+## Data availability
+
+The complete machine-readable, high-resolution geospatial dataset describing individual dam locations, orientations, and geometries is not publicly released owing to sensitivities associated with critical water infrastructure. Aggregated dam counts and changes, non-georeferenced river-fragmentation and free-flowing-river metrics, and source data underlying the reported figures and tables will be made publicly available upon publication at the reserved Figshare DOI: https://doi.org/10.6084/m9.figshare.33245955.
+
+## Licensing and provenance
+
+This repository is distributed under the GNU General Public License v3.0; see `LICENSE`. The Free-Flowing-Rivers-derived components under `result3/` retain the same license in `result3/LICENSE` and are associated with Grill *et al.*, “Mapping the world's free-flowing rivers” (2019), https://doi.org/10.1038/s41586-019-1111-9.
+
+## Contact
+
+Questions about the manuscript and supporting code should be directed to the corresponding author through the contact information provided in the manuscript.
