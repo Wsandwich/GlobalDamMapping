@@ -14,6 +14,8 @@ This repository is a submission-stage release of the supporting analysis code. A
 ├── result1/    # Dam-count aggregation, spatial summaries, and figure/table generation
 ├── result2/    # Policy and socio-environmental analyses, Monte Carlo propagation, and spatial regression
 ├── result3/    # River-fragmentation and free-flowing-river analyses
+├── open_analysis_code/  # Privacy-preserving aggregate-data preparation and plotting
+├── tests/      # Disclosure-control and anonymization tests
 ├── tools/      # Multi-temporal dam-annotation tools
 └── doc/        # Overview figures and supporting documentation
 ```
@@ -82,6 +84,34 @@ The river-fragmentation Monte Carlo scripts expose command-line arguments so tha
 python result3/mc_dof/02_mc_dof_simulation_v4.py --cache-path PATH/TO/basin_cache.pkl --results-path PATH/TO/mc_results_v4.pkl --n-sim 1000 --seed 42
 python result3/mc_dof/04_mc_convergence_v2.py --cache-path PATH/TO/basin_cache.pkl --out-path PATH/TO/mc_dof_convergence.png --seed 42
 ```
+
+## Public aggregate analysis
+
+The `open_analysis_code/` workflow is a privacy-preserving analysis layer for
+the non-sensitive aggregate data distributed separately through Figshare. It
+does not require exact dam coordinates, dam-to-river links, fine-basin
+identifiers, georeferenced segment-level degree-of-fragmentation records,
+spatial weights, or Monte Carlo caches.
+
+Install the lightweight public-analysis environment and run the tests:
+
+```text
+python -m pip install -r requirements-public.txt
+python -m unittest discover -s tests -v
+```
+
+After downloading and unpacking the public-data package, audit it and
+regenerate the three aggregate verification figures with:
+
+```text
+python open_analysis_code/run_public_analysis.py --data-root PATH/TO/UNPACKED_PUBLIC_DATA
+```
+
+The runner checks that the required aggregate inputs are present, audits the
+selected package for release hazards, and writes regenerated figures to
+`outputs/figures/`. Preparation scripts for disclosure-controlled dam, basin,
+model-summary, and optional segment outputs are also provided under
+`open_analysis_code/`.
 
 Large input datasets and intermediate caches are not included in this repository. Input sources and processing definitions are documented in the manuscript and its Supplementary Information.
 
