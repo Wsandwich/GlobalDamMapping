@@ -28,3 +28,8 @@ outputs/
 /ffr_aggregate_tables/
 /figure_source_data/
 /model_outputs/
+
+# Local editor settings and temporary Office lock files.
+.idea/
+.vscode/
+~$*.xlsx

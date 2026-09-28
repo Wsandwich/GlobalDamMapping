@@ -1,10 +1,11 @@
 # Uneven global dam change shapes divergent progress of free-flowing rivers
 
-This repository contains analysis and visualization code supporting the manuscript **“Uneven global dam change shapes divergent progress of free-flowing rivers.”** The study maps global dams in 2010, 2015, and 2020 and reports a 27.0% increase in global dam numbers over the decade, together with geographically divergent changes in river fragmentation and free-flowing rivers.
+> [!IMPORTANT]
+> **This GitHub repository currently contains only part of the code supporting this study.**
+>
+> The complete code has already been deposited on Figshare and provided via a private link. **The full code will be made publicly available in this repository upon publication of the paper.**
 
-## Repository status
-
-The complete analysis code supporting this study has been deposited on Figshare and is currently available via a private link. Upon publication of the paper, the complete code will be made publicly available in this GitHub repository.
+This repository contains a selection of analysis and visualization scripts supporting the manuscript **“Uneven global dam change shapes divergent progress of free-flowing rivers.”** The study maps global dams in 2010, 2015, and 2020 and reports a 27.0% increase in global dam numbers over the decade, together with geographically divergent changes in river fragmentation and free-flowing rivers.
 
 ![dam mapping](https://github.com/user-attachments/assets/aff34b6b-d1e6-4098-9c51-fa5973992cc2)
 
