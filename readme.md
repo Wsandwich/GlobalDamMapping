@@ -4,7 +4,7 @@ This repository contains analysis and visualization code supporting the manuscri
 
 ## Repository status
 
-This repository is a submission-stage release of the supporting analysis code. Additional workflow components, documentation, configuration examples, and reproducibility materials are being consolidated and will be added in subsequent versioned releases.
+The complete analysis code supporting this study has been deposited on Figshare and is currently available via a private link. Upon publication of the paper, the complete code will be made publicly available in this GitHub repository.
 
 ![dam mapping](https://github.com/user-attachments/assets/aff34b6b-d1e6-4098-9c51-fa5973992cc2)
 
