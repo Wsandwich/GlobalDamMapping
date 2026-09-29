@@ -116,9 +116,7 @@ model-summary, and optional segment outputs are also provided under
 
 Large input datasets and intermediate caches are not included in this repository. Input sources and processing definitions are documented in the manuscript and its Supplementary Information.
 
-## Data availability
 
-The complete machine-readable, high-resolution geospatial dataset describing individual dam locations, orientations, and geometries is not publicly released owing to sensitivities associated with critical water infrastructure. Aggregated dam counts and changes, non-georeferenced river-fragmentation and free-flowing-river metrics, and source data underlying the reported figures and tables will be made publicly available upon publication at the reserved Figshare DOI: https://doi.org/10.6084/m9.figshare.33245955.
 
 ## Licensing and provenance
 
